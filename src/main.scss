@@ -35,7 +35,10 @@
                 background: rgba(0, 0, 0, 0);
                 border: 0;
                 outline: 0;
-                width: 17rem;
+                width: 14rem;
+            }
+            input:first-child{
+                margin-right: 20px;
             }
             .toggle-switch{
                 width: 30px;
@@ -45,14 +48,13 @@
                 display: flex;
                 align-items: center;
                 position: relative;
-                transition: .4s;
                 div{
+                    transition: 4s;
                     width:13px;
                     height: 13px;
                     background: rgb(247, 173, 0);
                     border-radius: 50%;
                     position: absolute;
-                    left: ;
                 }
             }
         }

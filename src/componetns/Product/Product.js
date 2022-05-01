@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 
 const Product = () => {
     const [products, setPtoducts] = useState([]);
-    const [supplierUpdate,setSupplierUpdate] = useState(false);
+    const [supplierUpdate, setSupplierUpdate] = useState(false);
     useEffect(() => {
         const loadProducts = async () => {
             const { data } = await axios('/products.json');
@@ -20,25 +20,26 @@ const Product = () => {
         console.log(e.target.value)
     }
 
-    const handleSupplierUpdate = e =>{
+    const handleSupplierUpdate = e => {
         const SupplierUpdateBtn = document.querySelector('.switch');
         const supplierField = document.querySelectorAll('.supplier-input-field');
         console.log(supplierField);
-        if(!supplierUpdate){
+        if (!supplierUpdate) {
+            SupplierUpdateBtn.style.transition = '4s';
             SupplierUpdateBtn.style.right = '0px';
             SupplierUpdateBtn.style.left = 'auto';
-            supplierField.forEach(x=>{
+            supplierField.forEach(x => {
                 x.style.background = 'red';
                 x.removeAttribute("readonly");
             })
             console.log('first is hitting')
             // setSupplierUpdate(true)
-        }else if(supplierUpdate){
+        } else if (supplierUpdate) {
             SupplierUpdateBtn.style.right = 'auto';
             SupplierUpdateBtn.style.left = '0px';
-            supplierField.forEach(x=>{
+            supplierField.forEach(x => {
                 x.style.background = '#0000';
-                x.setAttribute("readonly","true");
+                x.setAttribute("readonly", "true");
             })
             console.log('last is hitting')
         }
@@ -62,8 +63,8 @@ const Product = () => {
                         <button>DELIVERED</button>
                     </div>
                     <div className="supplier">
-                        <div  className='d-flex justify-content-between'>
-                            <p>Suplier name:</p><input type="text"  className='supplier-input-field' defaultValue={product?.supplier?.name} readOnly name="" id="" />
+                        <div className='d-flex justify-content-between'>
+                            <p>Suplier name:</p><input type="text" className='supplier-input-field' defaultValue={product?.supplier?.name} readOnly name="" id="" />
                             <div onClick={handleSupplierUpdate} className='toggle-switch'>
                                 <div className='switch'>
 
@@ -83,6 +84,10 @@ const Product = () => {
                         <button>Restock</button>
                     </div>
                 </div>
+            </div>
+            <div className="description">
+                <h3>About the Book</h3>
+                <p>{product?.description}</p>
             </div>
         </div>
     );

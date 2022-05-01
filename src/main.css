@@ -39,7 +39,11 @@
   background: rgba(0, 0, 0, 0);
   border: 0;
   outline: 0;
-  width: 17rem;
+  width: 14rem;
+}
+
+.product .product-wrapper .supplier input:first-child {
+  margin-right: 20px;
 }
 
 .product .product-wrapper .supplier .toggle-switch {
@@ -54,17 +58,16 @@
       -ms-flex-align: center;
           align-items: center;
   position: relative;
-  -webkit-transition: .4s;
-  transition: .4s;
 }
 
 .product .product-wrapper .supplier .toggle-switch div {
+  -webkit-transition: 4s;
+  transition: 4s;
   width: 13px;
   height: 13px;
   background: #f7ad00;
   border-radius: 50%;
   position: absolute;
-  left: 0;
 }
 
 .product .product-wrapper .restock-item {

@@ -1,0 +1,7 @@
+window{
+    transition: 5s;
+}
+html {
+    scroll-behavior: smooth;
+    transition-duration: 500ms;
+  }

@@ -1,0 +1,64 @@
+.inventory {
+    img {
+        width: 70px;
+        text-align: center;
+    }
+}
+
+
+// ----------- single product--------
+.product {
+    .product-wrapper {
+        background: rgb(239, 250, 240);
+        display: grid;
+        grid-template-columns: 40% 1fr;
+        padding: 20px;
+
+        img {
+            padding: 20px;
+        }
+
+        .selling-info {
+            display: flex;
+            align-items: baseline;
+            border: 1px solid black;
+            // justify-content: center;
+           
+            p{
+                margin-right: 40px;
+            }
+        }
+        .supplier{
+            border: 1px solid black;
+            margin: 20px 0; 
+            input{
+                background: rgba(0, 0, 0, 0);
+                border: 0;
+                outline: 0;
+                width: 17rem;
+            }
+            .toggle-switch{
+                width: 30px;
+                height: 15px;
+                background: rgb(22, 0, 93);
+                border-radius: 20px;
+                display: flex;
+                align-items: center;
+                position: relative;
+                transition: .4s;
+                div{
+                    width:13px;
+                    height: 13px;
+                    background: rgb(247, 173, 0);
+                    border-radius: 50%;
+                    position: absolute;
+                    left: ;
+                }
+            }
+        }
+        .restock-item{
+            border: 1px solid black;
+
+        }
+    }
+}

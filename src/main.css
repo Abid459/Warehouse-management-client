@@ -73,4 +73,12 @@
 .product .product-wrapper .restock-item {
   border: 1px solid black;
 }
+
+.add-item .img-container {
+  width: 200px;
+  height: 200px;
+  background: #c1c1c1;
+  border-radius: 5px;
+  margin-right: 20px;
+}
 /*# sourceMappingURL=main.css.map */

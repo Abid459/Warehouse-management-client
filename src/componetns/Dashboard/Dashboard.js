@@ -18,7 +18,18 @@ const Dashboard = () => {
             <div className='dashboard-info'>
                 <div>
                     <p>Low Stock</p>
+                    <p>12</p>
+                    <button>Manage</button>
                 </div>
+                <div>
+                    <p>Transactions</p>
+                    <p>Sell:$3000</p>
+                    <p>Capital:$2000</p>
+                    <p>Revenew:$1000</p>
+                </div>
+            </div>
+            <div className="inventory-product">
+                <p>Those are inventory product</p>
             </div>
             
         </div>

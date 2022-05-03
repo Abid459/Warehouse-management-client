@@ -1,5 +1,18 @@
-.dashboard{
+.stock-info {
     background: rgb(203, 203, 203);
+    margin-bottom: 30px;
     // .stock-info{
 
+}
+.dashboard-info{
+    background: rgb(197, 197, 197);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    div{
+        margin: 10px auto;
+        background: rgb(0, 154, 181);
+        padding: 20px;
+        border-radius: 5px;
+        color: aliceblue;
     }
+}

@@ -1,4 +1,21 @@
-.dashboard {
+.stock-info {
   background: #cbcbcb;
+  margin-bottom: 30px;
+}
+
+.dashboard-info {
+  background: #c5c5c5;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+}
+
+.dashboard-info div {
+  margin: 10px auto;
+  background: #009ab5;
+  padding: 20px;
+  border-radius: 5px;
+  color: aliceblue;
 }
 /*# sourceMappingURL=Dashnoard.css.map */

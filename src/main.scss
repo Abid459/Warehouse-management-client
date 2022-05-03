@@ -1,6 +1,6 @@
 .inventory {
     img {
-        width: 70px;
+        // width: 70px;
         text-align: center;
     }
 }
@@ -9,30 +9,43 @@
 // ----------- single product--------
 .product {
     .product-wrapper {
-        background: rgb(239, 250, 240);
+        background: rgb(169, 169, 169);
         display: grid;
         grid-template-columns: 40% 1fr;
-        padding: 20px;
+        padding: 60px 30px;
 
         img {
-            padding: 20px;
+            padding: 50px;
+            // background: rgb(249, 249, 249);
+            margin-right: 20px;
+            // border-radius: 50%;
         }
 
         .selling-info {
             display: flex;
             align-items: baseline;
-            border: 1px solid black;
+            border: 1px solid rgb(156, 156, 156);
             // justify-content: center;
+            padding: 10px;
+            border-radius: 5px;
            
             p{
                 margin-right: 40px;
             }
         }
         .supplier{
-            border: 1px solid black;
+            // border: 1px solid rgb(156, 156, 156);
             margin: 20px 0; 
+            background: #938E94;
+            color: white;
+            // padding: 10px;
+            // border-radius: 5px;
+            p{
+                background: #5D5C61;
+            }
             input{
                 background: rgba(0, 0, 0, 0);
+                color: white;
                 border: 0;
                 outline: 0;
                 width: 14rem;
@@ -59,16 +72,34 @@
             }
         }
         .restock-item{
-            border: 1px solid black;
+            border-radius: 5px;
+            background: #938E94;
+            box-shadow: 0px 0px 19px -5px #353434;
+            
+            // position: relative;
+            p{
+               background:#5D5C61;
+            }
+            input{
+            }
+            button {
+                // background: #938E94;
+                
+            }
+            
+            
 
         }
+    }
+    .description{
+        background:#B0A295;
     }
 }
 
 // ----------Add item------------
 .add-item{
     .img-container{
-        width: 200px;
+        width: 500px;
         height:200px;
         background: rgb(193, 193, 193);
         border-radius: 5px;

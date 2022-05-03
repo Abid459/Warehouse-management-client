@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,aAAa,CAAA;EACT,UAAU,EAAE,KAAkB;EAE9B,KAAK,EAAE,KAAK;EACZ,KAAK,EAAE,KAAY;EACnB,UAAU,EAAE,MAAM;EAClB,aAAa,EAAE,GAAG;EAClB,MAAM,EAAE,GAAG,CAAC,KAAK,CAAC,uBAAuB;CAO5C;;AAdD,AASI,aATS,CAST,MAAM,CAAA;EAGF,OAAO,EAAE,GAAG;CACf",
+    "sources": [
+        "InventoryOptions.scss"
+    ],
+    "names": [],
+    "file": "InventoryOptions.css"
+}

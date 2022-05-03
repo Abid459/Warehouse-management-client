@@ -1,47 +1,52 @@
-import React from 'react';
-import { Table } from 'react-bootstrap';
+import { faBars, faEllipsisVertical } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React, { useState } from 'react';
+import InventoryOptions from '../Inventory/InventoryOptions';
 import './InventoryProduct.css'
 
 
 const InventoryProduct = ({ products }) => {
-    // console.log(product.image)
-    let count =1;
-    // const vv ="/images/Finding Me-A Memoir.jpg";
+    const [showOptions, setShowOptions] = useState(false);
+
+
+
     return (
-        <div className='inventory-product'>
-            <Table striped bordered hover>
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Cover Picture</th>
-                        <th>Name</th>
-                        <th>Author</th>
-                        <th>Price</th>
-                        <th colSpan={2} className='text-center'>Operation</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {
-                        products.map(product => {
-                            const  name = product.name;
-                            const newName = name.length >= 30 ? name.slice(0,30) + '...' :name;
-                          return  <tr>
-                                <td>{count ++}</td>
-                                <td className='text-center'> <img src={product.image} alt="" /> </td>
-                                <td>{newName}</td>
-                                <td>{product.author}</td>
-                                <td className='text-center'>{product.price}</td>
-                                <td className='text-center'><button>Update</button></td>
-                                <td className='text-center'><button>delete</button></td>
-                            </tr>
-                        })
-                    }
-                </tbody>
-            </Table>
+        <div className='inventory-product px-5 py-3'>
 
-            
+            {
+                products.map(product => {
+                    const name = product.name;
+                    const newName = name.length >= 30 ? name.slice(0, 30) + '...' : name;
+                    return <div
+                        key={product._id}
+                        className='single-inventory-item border rounded mb-2'>
+                        <div>
+                            <img src={product.image} alt="" />
+                        </div>
+                        <div>
+                            <p >{newName}</p>
+                        </div>
+                        <div>
+                            <p className='text-muted p-author'><i> by- {product.author}</i></p>
+                        </div>
+                        <div className='text-center'>
+                            <p>Price</p>
+                            <p >{product.price}</p>
+                        </div>
+                        <div className='text-center'>
+                            <p>Quantity</p>
+                            <p>{product?.quantity}</p>
+                        </div>
+                        <div className='options'>
+                            <button>DELETE</button>
+                            <button>EDIT</button>
+                        </div>
 
 
+
+                    </div>
+                })
+            }
 
         </div>
     );

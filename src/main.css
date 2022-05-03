@@ -1,19 +1,19 @@
 .inventory img {
-  width: 70px;
   text-align: center;
 }
 
 .product .product-wrapper {
-  background: #effaf0;
+  background: darkgray;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 40% 1fr;
       grid-template-columns: 40% 1fr;
-  padding: 20px;
+  padding: 60px 30px;
 }
 
 .product .product-wrapper img {
-  padding: 20px;
+  padding: 50px;
+  margin-right: 20px;
 }
 
 .product .product-wrapper .selling-info {
@@ -23,7 +23,9 @@
   -webkit-box-align: baseline;
       -ms-flex-align: baseline;
           align-items: baseline;
-  border: 1px solid black;
+  border: 1px solid #9c9c9c;
+  padding: 10px;
+  border-radius: 5px;
 }
 
 .product .product-wrapper .selling-info p {
@@ -31,12 +33,18 @@
 }
 
 .product .product-wrapper .supplier {
-  border: 1px solid black;
   margin: 20px 0;
+  background: #938E94;
+  color: white;
+}
+
+.product .product-wrapper .supplier p {
+  background: #5D5C61;
 }
 
 .product .product-wrapper .supplier input {
   background: rgba(0, 0, 0, 0);
+  color: white;
   border: 0;
   outline: 0;
   width: 14rem;
@@ -71,11 +79,22 @@
 }
 
 .product .product-wrapper .restock-item {
-  border: 1px solid black;
+  border-radius: 5px;
+  background: #938E94;
+  -webkit-box-shadow: 0px 0px 19px -5px #353434;
+          box-shadow: 0px 0px 19px -5px #353434;
+}
+
+.product .product-wrapper .restock-item p {
+  background: #5D5C61;
+}
+
+.product .description {
+  background: #B0A295;
 }
 
 .add-item .img-container {
-  width: 200px;
+  width: 500px;
   height: 200px;
   background: #c1c1c1;
   border-radius: 5px;

@@ -12,7 +12,7 @@ const Product = () => {
         }
         loadProducts()
     }, [])
-    const product = products[1]
+    const product = products[2]
     // const{image,name,author,price,description,registered,quantity,sold} = product;
     console.log(products[1])
 
@@ -51,38 +51,51 @@ const Product = () => {
 
             <div className="product-wrapper">
                 <img src={product?.image} alt="" />
-                <div>
+                <div >
                     <div className="info">
-                        <h2>{product?.name}</h2>
-                        <p><i>{product?.author}</i></p>
+                        <h5>{product?.name}</h5>
+                        <p><i>by {product?.author}</i></p>
                     </div>
                     <hr />
                     <div className="selling-info">
-                        <p>Quantity remain: {product?.quantity}</p>
-                        <p>Product sold:{product?.sold}</p>
+                        <p>Quantity: {product?.quantity}</p>
+                        <p>Sold:{product?.sold}</p>
+                        <p>Buying Price: ${product?.price}</p>
+                        <p>Selling Price: ${product?.price}</p>
                         <button>DELIVERED</button>
                     </div>
                     <div className="supplier">
-                        <div className='d-flex justify-content-between'>
-                            <p>Suplier name:</p><input type="text" className='supplier-input-field' defaultValue={product?.supplier?.name} readOnly name="" id="" />
-                            <div onClick={handleSupplierUpdate} className='toggle-switch'>
-                                <div className='switch'>
+                        <p className='p-2'>Supplier:</p>
+                        <div className='p-2'>
 
+
+                            <div className='d-flex justify-content-between'>
+                                <div>
+                                    <b> Name:</b> <input type="text" className='supplier-input-field' defaultValue={product?.supplier?.name} readOnly name="" id="" />
+                                </div>
+                                <div onClick={handleSupplierUpdate} className='toggle-switch'>
+                                    <div className='switch'>
+
+                                    </div>
                                 </div>
                             </div>
+
+                            <div>
+                                <b> Email:</b> <input type="email" className='supplier-input-field' defaultValue={product?.supplier?.email} name="email" readOnly />
+                                <b> Phone:</b> <input type="text" className='supplier-input-field' defaultValue={product?.supplier?.phone} name="" readOnly />
+                            </div>
                         </div>
-                        <p>contact supplier: </p>
-                        <div>
-                            Email: <input type="email" className='supplier-input-field' defaultValue={product?.supplier?.email} name="email" readOnly />
-                            Phone: <input type="text" className='supplier-input-field' defaultValue={product?.supplier?.phone} name="" readOnly />
-                        </div>
-                        <button >Update</button>
                     </div>
+
                     <div className='restock-item'>
-                        <p>Restock the item</p>
-                        <input type="number" name="restock" placeholder='Enter the amount' />
-                        <button>Restock</button>
+                        <p className='mb-3 p-2 text-white'>Restock the item</p>
+                        <div className='d-flex justify-content-between p-2'>
+                            <input type="number" className='w-50' name="restock" placeholder='Enter the amount' />
+                            <span className='text-white'>total cost: $300</span>
+                            <button>Restock</button>
+                        </div>
                     </div>
+
                 </div>
             </div>
             <div className="description">

@@ -2,8 +2,8 @@ import React from 'react';
 
 const MyItems = () => {
     return (
-        <div>
-            
+        <div className='my-items'>
+            <p>This is my item</p>
         </div>
     );
 };

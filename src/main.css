@@ -1,3 +1,11 @@
+.home {
+  margin-top: 70px;
+}
+
+.inventory {
+  margin-top: 70px;
+}
+
 .inventory img {
   text-align: center;
 }
@@ -99,5 +107,9 @@
   background: #c1c1c1;
   border-radius: 5px;
   margin-right: 20px;
+}
+
+.my-items {
+  margin-top: 70px;
 }
 /*# sourceMappingURL=main.css.map */

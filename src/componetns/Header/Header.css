@@ -1,0 +1,13 @@
+.top-header {
+  background: #919191;
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  width: 100vw;
+}
+
+.top-header .faIcon1 {
+  color: white;
+  margin-left: 5px;
+}
+/*# sourceMappingURL=Header.css.map */

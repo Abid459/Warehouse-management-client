@@ -2,10 +2,14 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './Dashnoard.css'
 import useAllproducts from '../../hooks/useAllproducts';
+import { useNavigate } from 'react-router-dom';
+import useLowstock from '../../hooks/useLowstock';
 
 const Dashboard = () => {
     const [count,setCount] = useState(0);
-    const [products, setPtoducts] = useAllproducts([]);
+    const [price,setPrice] = useState()
+    const [lowStock,setLowstock] = useLowstock([]);
+    const navigate = useNavigate();
 
     useEffect(()=>{
         const counProducts = async () => {
@@ -14,8 +18,25 @@ const Dashboard = () => {
             setCount(data.count);
         }
         counProducts();
-    },[])
 
+        const totalPrice = async () =>{
+            const {data} = await axios ('http://localhost:5000/allPrice')
+            let sum = 0;
+            data.forEach(x => {
+                sum = sum+x;
+            });
+            setPrice(sum);
+        }
+        totalPrice();
+
+        
+
+    },[]);
+
+
+
+
+ 
 
     return (
         <div className='dashboard'>
@@ -26,15 +47,15 @@ const Dashboard = () => {
                 </div>
                 <div>
                     <p>Stock Value</p>
-                    <p className='text-center'>$900</p>
+                    <p className='text-center'>${price}</p>
                 </div>
             </div>
 
             <div className='dashboard-info'>
                 <div>
                     <p>Low Stock</p>
-                    <p>12</p>
-                    <button>Manage</button>
+                    <p>{lowStock.length}</p>
+                    <button onClick={()=>navigate('/lowStock',lowStock)}>Manage</button>
                 </div>
                 <div>
                     <p>Transactions</p>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, Route, Routes } from 'react-router-dom';
+import LowStock from '../LowStock/LowStock';
 import Home from '../Home/Home';
 import Inventory from '../Inventory/Inventory';
 import MyItems from '../MyItems/MyItems';
@@ -17,6 +18,7 @@ const Header = () => {
                 <Route path='/inventory' element={<Inventory></Inventory>}></Route>
                 <Route path='/singleItem' element={<Product></Product>}></Route>
                 <Route path='myItem' element={<MyItems></MyItems>}></Route>
+                <Route path='lowStock' element={<LowStock></LowStock>}></Route>
                 <Route path='*' element={<NotFound></NotFound>}></Route>
             </Routes>
         </header>

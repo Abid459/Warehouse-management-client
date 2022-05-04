@@ -1,12 +1,26 @@
 import { faBars, faEllipsisVertical } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useState } from 'react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 import InventoryOptions from '../Inventory/InventoryOptions';
 import './InventoryProduct.css'
 
 
 const InventoryProduct = ({ products }) => {
-    const [showOptions, setShowOptions] = useState(false);
+    // const [showOptions, setShowOptions] = useState(false);
+    
+    // useEffect(()=>{
+    // },[])
+    const handleDelete = async(id) =>{
+        const isSure = window.confirm('Are you sure?')
+        if(isSure){
+            const {data} = axios.delete(`http://localhost:5000/product/${id}`)
+            .then(res => console.log(res))
+            .then(()=>window.alert('item deleted'))
+            
+            console.log(data)
+        }
+    }
 
 
 
@@ -38,7 +52,7 @@ const InventoryProduct = ({ products }) => {
                             <p>{product?.quantity}</p>
                         </div>
                         <div className='options'>
-                            <button>DELETE</button>
+                            <button onClick={()=>handleDelete(product._id)}>DELETE</button>
                             <button>EDIT</button>
                         </div>
 

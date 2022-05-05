@@ -1,12 +1,12 @@
-import { faBars, faEllipsisVertical } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
-import InventoryOptions from '../Inventory/InventoryOptions';
+import React, { useState } from 'react';
+import Product from '../Product/Product';
+
 import './InventoryProduct.css'
 
 
-const InventoryProduct = ({ products }) => {
+const InventoryProduct = ({ products,setPtoducts}) => {
     // const [showOptions, setShowOptions] = useState(false);
     
     // useEffect(()=>{
@@ -14,15 +14,24 @@ const InventoryProduct = ({ products }) => {
     const handleDelete = async(id) =>{
         const isSure = window.confirm('Are you sure?')
         if(isSure){
-            const {data} = axios.delete(`http://localhost:5000/product/${id}`)
-            .then(res => console.log(res))
-            .then(()=>window.alert('item deleted'))
+             axios.delete(`http://localhost:5000/product/${id}`)
+            .then(data=>{
+                setPtoducts(products.filter(product=>product._id !== id))
+                console.log(data)
+            })
             
-            console.log(data)
+            
+            // console.log(data)
         }
     }
 
+    const [modalShow, setModalShow] = React.useState(false);
+    const [curentProduct,setCurentProduct]= useState({});
 
+    const handleEdit = product =>{
+        setModalShow(true)
+        setCurentProduct(product)
+    }
 
     return (
         <div className='inventory-product px-5 py-3'>
@@ -30,7 +39,7 @@ const InventoryProduct = ({ products }) => {
             {
                 products.map(product => {
                     const name = product.name;
-                    const newName = name.length >= 30 ? name.slice(0, 30) + '...' : name;
+                    const newName = name?.length >= 30 ? name.slice(0, 30) + '...' : name;
                     return <div
                         key={product._id}
                         className='single-inventory-item border rounded mb-2'>
@@ -53,16 +62,22 @@ const InventoryProduct = ({ products }) => {
                         </div>
                         <div className='options'>
                             <button onClick={()=>handleDelete(product._id)}>DELETE</button>
-                            <button>EDIT</button>
+                            <button onClick={()=>handleEdit(product)}>EDIT</button>
                         </div>
 
 
 
-                    </div>
+                    
+        </div>
                 })
             }
 
-        </div>
+                <Product
+                product={curentProduct}
+                show={modalShow}
+                onHide={() => setModalShow(false)}
+                ></Product>
+                </div>
     );
 };
 

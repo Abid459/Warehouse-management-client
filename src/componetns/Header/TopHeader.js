@@ -13,7 +13,7 @@ const TopHeader = () => {
                 <Link to ={'/singleItem'}> <FontAwesomeIcon className='faIcon1' icon={faHome}></FontAwesomeIcon> </Link>
                 <Link to ={'/myItem'}> <FontAwesomeIcon className='faIcon1' icon={faHome}></FontAwesomeIcon> </Link>
             </nav>
-        <FontAwesomeIcon className='faIcon faEnvelop' icon={faEnvelope }></FontAwesomeIcon>            
+        {/* <FontAwesomeIcon className='faIcon faEnvelop' icon={faEnvelope }></FontAwesomeIcon>             */}
         </div>
     );
 };

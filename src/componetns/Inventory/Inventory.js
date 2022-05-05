@@ -22,7 +22,7 @@ const Inventory = () => {
     const [modalShow, setModalShow] = React.useState(false);// using byreact bootstrap modal
     return (
         <div className='inventory'>
-            <InventoryProduct products={products}></InventoryProduct>
+            <InventoryProduct products={products} setPtoducts={setPtoducts}></InventoryProduct>
             {/* {showOptions === true? <InventoryOptions></InventoryOptions>: null} */}
             <FontAwesomeIcon className='faIcon faplus' icon={faPlus} onClick={() => setModalShow(true)}></FontAwesomeIcon>
             {/* bootstrap modal---- */}

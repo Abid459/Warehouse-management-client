@@ -11,17 +11,14 @@
 }
 
 .product .product-wrapper {
-  background: darkgray;
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 40% 1fr;
-      grid-template-columns: 40% 1fr;
-  padding: 60px 30px;
+  padding: 10px;
+  border: 1px solid #d4d4d4;
 }
 
 .product .product-wrapper img {
   padding: 50px;
   margin-right: 20px;
+  width: 200px;
 }
 
 .product .product-wrapper .selling-info {
@@ -31,41 +28,34 @@
   -webkit-box-align: baseline;
       -ms-flex-align: baseline;
           align-items: baseline;
-  border: 1px solid #9c9c9c;
+  text-align: center;
+  -webkit-box-shadow: 0px 0px 19px -5px #d3d3d3;
+          box-shadow: 0px 0px 19px -5px #d3d3d3;
   padding: 10px;
   border-radius: 5px;
 }
 
 .product .product-wrapper .selling-info p {
   margin-right: 40px;
+  font-size: small;
 }
 
 .product .product-wrapper .supplier {
+  -webkit-box-shadow: 0px 0px 19px -5px #d3d3d3;
+          box-shadow: 0px 0px 19px -5px #d3d3d3;
   margin: 20px 0;
-  background: #938E94;
-  color: white;
 }
 
-.product .product-wrapper .supplier p {
-  background: #5D5C61;
+.product .product-wrapper .restock-item {
+  border-radius: 5px;
+  -webkit-box-shadow: 0px 0px 19px -5px #d3d3d3;
+          box-shadow: 0px 0px 19px -5px #d3d3d3;
 }
 
-.product .product-wrapper .supplier input {
-  background: rgba(0, 0, 0, 0);
-  color: white;
-  border: 0;
-  outline: 0;
-  width: 14rem;
-}
-
-.product .product-wrapper .supplier input:first-child {
-  margin-right: 20px;
-}
-
-.product .product-wrapper .supplier .toggle-switch {
+.product .product-wrapper .toggle-switch {
   width: 30px;
   height: 15px;
-  background: #16005d;
+  background: #00114b;
   border-radius: 20px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -76,29 +66,32 @@
   position: relative;
 }
 
-.product .product-wrapper .supplier .toggle-switch div {
-  -webkit-transition: 4s;
-  transition: 4s;
+.product .product-wrapper .toggle-switch div {
   width: 13px;
   height: 13px;
-  background: #f7ad00;
+  background: #fafafa;
   border-radius: 50%;
   position: absolute;
 }
 
-.product .product-wrapper .restock-item {
-  border-radius: 5px;
-  background: #938E94;
-  -webkit-box-shadow: 0px 0px 19px -5px #353434;
-          box-shadow: 0px 0px 19px -5px #353434;
+.product .product-wrapper input {
+  background: rgba(0, 0, 0, 0);
+  border: 0;
+  outline: 0;
+  width: 13rem;
+  font-size: small;
 }
 
-.product .product-wrapper .restock-item p {
-  background: #5D5C61;
+.product .product-wrapper input:first-child {
+  margin-right: 20px;
 }
 
 .product .description {
-  background: #B0A295;
+  background: #ffffff;
+  -webkit-box-shadow: 0px 0px 19px -5px #d3d3d3;
+          box-shadow: 0px 0px 19px -5px #d3d3d3;
+  padding: 30px;
+  text-align: justify;
 }
 
 .add-item .img-container {

@@ -7,19 +7,32 @@ p{
   margin-bottom: 0;
   font-size: .9rem;
 }
+h5{
+  font-size: 1rem;
+}
+i{
+  font-size: .8rem;
+}
+.hr{
+  height: .1px;
+  /* width:20px; */
+  background: rgb(197, 197, 197);
+  margin-bottom: 1rem;
+}
 img{
   width: 100%;
 }
 input{
-    border:1px solid rgb(115, 221, 240);
+    border:1px solid rgb(158, 158, 158);
     padding: 0 10px;
     outline: 0;
 }
 button{
   border: 0;
   outline: 0;
-  background: rgb(28, 22, 97);
-  color: white;
+  background: rgb(219, 219, 219);
+  border: .px solid rgb(139, 139, 139);
+  /* color: white; */
   padding:.5rem 1rem;
   /* font-size: 1px; */
   font-size: .9rem;

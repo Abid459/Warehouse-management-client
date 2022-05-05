@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { Button, Modal } from 'react-bootstrap';
 
 const Product = (props) => {
+    console.log('props',props)
     const product = props.product;
     const [supplierUpdate, setSupplierUpdate] = useState(false);
     const [quantity, setQuantity] = useState(0)
@@ -12,16 +13,19 @@ const Product = (props) => {
         setQuantity(product.quantity)
         setSold(product.sold)
     }, [product])
+
     const handleDeliver = async () => {
-        setQuantity(quantity - 1)
-        setSold(sold + 1);
-        axios.put(`http://localhost:5000/productQuantitty/${product._id}`, { quantity:quantity-1, sold:sold+1 })
-        .then(res=>console.log(res))
-        
-        // console.log(data)
+        await axios.put(`http://localhost:5000/productQuantitty/${product._id}`, { quantity: quantity - 1, sold: sold + 1 })
+            .then(res => {
+                if (res.data.modifiedCount >= 1) {
+                    setQuantity(quantity - 1)
+                    setSold(sold + 1);
+                    props?.setrefreshproduct(!props.refreshproduct)
+                }
+            })
     }
-    // useEffect(()=>{
-    // },[sold,quantity])
+
+
 
     const handleSupplierUpdate = e => {
         const SupplierUpdateBtn = document.querySelector('.switch');
@@ -48,6 +52,19 @@ const Product = (props) => {
             console.log('last is hitting')
         }
         setSupplierUpdate(!supplierUpdate);
+    }
+
+    const handleRestock = async () => {
+        const restock = document.querySelector('.restock').value;
+        console.log('restock', restock)
+        await axios.put(`http://localhost:5000/productRestock/${product._id}`, { quantity: parseInt(quantity) + parseInt(restock) })
+            .then(res => {
+                if (res.data.modifiedCount >= 1) {
+                    setQuantity(parseInt(quantity) + parseInt(restock))
+                    props?.setrefreshproduct(!props.refreshproduct)
+                }
+            })
+
     }
 
     return (
@@ -119,9 +136,9 @@ const Product = (props) => {
                                 <div className='restock-item'>
                                     <p className='mb-3 p-2'>Restock the item</p>
                                     <div className='d-flex justify-content-between p-2'>
-                                        <input type="number" className='w-50' name="restock" placeholder='Enter the amount' />
+                                        <input type="number" className='w-50 restock' name="restock" placeholder='Enter the amount' />
                                         <span className='text-white'>total cost: $300</span>
-                                        <button>Restock</button>
+                                        <button onClick={handleRestock}>Restock</button>
                                     </div>
                                 </div>
 
@@ -140,8 +157,5 @@ const Product = (props) => {
         </div>
     );
 }
-
-
-//   render(<App />);
 
 export default Product;

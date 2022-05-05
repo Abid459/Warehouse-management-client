@@ -1,16 +1,19 @@
 
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Product from '../Product/Product';
 
 import './InventoryProduct.css'
 
 
-const InventoryProduct = ({ products,setPtoducts}) => {
-    // const [showOptions, setShowOptions] = useState(false);
+const InventoryProduct = ({refreshProduct,setRefreshProduct,products,setPtoducts}) => {
+    const [modalShow, setModalShow] = React.useState(false);
+    const [curentProduct,setCurentProduct]= useState({});
+    // const [refreshProduct,setRefreshProduct] = useState(false) //for refreshing the product
+    const [quantity,setQuantity] = useState(0)
+
+//    console.log('refreshProduct',refreshProduct)
     
-    // useEffect(()=>{
-    // },[])
     const handleDelete = async(id) =>{
         const isSure = window.confirm('Are you sure?')
         if(isSure){
@@ -19,15 +22,10 @@ const InventoryProduct = ({ products,setPtoducts}) => {
                 setPtoducts(products.filter(product=>product._id !== id))
                 console.log(data)
             })
-            
-            
-            // console.log(data)
         }
     }
 
-    const [modalShow, setModalShow] = React.useState(false);
-    const [curentProduct,setCurentProduct]= useState({});
-
+   
     const handleEdit = product =>{
         setModalShow(true)
         setCurentProduct(product)
@@ -73,6 +71,8 @@ const InventoryProduct = ({ products,setPtoducts}) => {
             }
 
                 <Product
+                refreshproduct = {refreshProduct}
+                setrefreshproduct={setRefreshProduct}
                 product={curentProduct}
                 show={modalShow}
                 onHide={() => setModalShow(false)}

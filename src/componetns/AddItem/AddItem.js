@@ -18,11 +18,11 @@ const AddItem = (props) => {
   
     const image = e.target.image.value || 'https://i.ibb.co/d5nxzwC/book.png';
     const description = e.target.description.value;
-    const quantity = e.target.quantity.value;
+    const quantity = e.target.quantity.value || 0;
     // const quantity = e.target.quantity.value
   
-    const price = e.target.buyimgPrice.value;
-    const sellingPrice = e.target.sellingPrice.value;
+    const price = e.target.buyimgPrice.value || 0;
+    const sellingPrice = e.target.sellingPrice.value || 0;
   
     const supplier = {
       name: e.target.sName.value,
@@ -35,6 +35,7 @@ const AddItem = (props) => {
       .then(res => {
         if(res.data.insertedId){
           setResponse('item added')
+          props.setrefreshproduct(!props.refreshproduct)
           e.target.reset()
         }
       })

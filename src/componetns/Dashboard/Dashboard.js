@@ -2,14 +2,17 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './Dashnoard.css'
 import useAllproducts from '../../hooks/useAllproducts';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import useLowstock from '../../hooks/useLowstock';
+import InventoryProduct from '../InventoryProduct/InventoryProduct';
+import useRefreshProduct from '../../hooks/useRefreshProduct';
 
 const Dashboard = () => {
     const [count,setCount] = useState(0);
     const [price,setPrice] = useState()
     const [lowStock,setLowstock] = useLowstock([]);
     const navigate = useNavigate();
+    const {products,refreshProduct,setRefreshProduct} = useRefreshProduct('productsSix')
 
     useEffect(()=>{
         const counProducts = async () => {
@@ -66,6 +69,10 @@ const Dashboard = () => {
             </div>
             <div className="inventory-product">
                 <p>Those are inventory product</p>
+                <div>
+                    <InventoryProduct products={products} refreshProduct={refreshProduct} setRefreshProduct={setRefreshProduct}></InventoryProduct>
+                    <Link to={'/inventory'}> Show all products</Link>
+                </div>
             </div>
 
         </div>

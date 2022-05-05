@@ -4,11 +4,12 @@ import React, { useEffect, useState } from 'react';
 import { Button, Modal } from 'react-bootstrap';
 
 const Product = (props) => {
-    console.log('props',props)
+    // console.log('props', props)
     const product = props.product;
     const [supplierUpdate, setSupplierUpdate] = useState(false);
     const [quantity, setQuantity] = useState(0)
     const [sold, setSold] = useState(props.product.sold)
+    const sellPrice = props?.price +(props.price*0.2)
     useEffect(() => {
         setQuantity(product.quantity)
         setSold(product.sold)
@@ -27,10 +28,10 @@ const Product = (props) => {
 
 
 
-    const handleSupplierUpdate = e => {
+    const handleUpdateInfo = () => {
         const SupplierUpdateBtn = document.querySelector('.switch');
         const supplierField = document.querySelectorAll('.edit-input-field');
-        console.log(supplierField);
+        // console.log(supplierField);
         if (!supplierUpdate) {
             SupplierUpdateBtn.style.transition = '4s';
             SupplierUpdateBtn.style.right = '0px';
@@ -40,23 +41,36 @@ const Product = (props) => {
                 x.style.borderRadius = '6px';
                 x.removeAttribute("readonly");
             })
-            console.log('first is hitting')
+       
             // setSupplierUpdate(true)
         } else if (supplierUpdate) {
             SupplierUpdateBtn.style.right = 'auto';
             SupplierUpdateBtn.style.left = '0px';
             supplierField.forEach(x => {
                 x.style.background = '#0000';
+                const buyingPrice = parseInt(document.querySelector('.price').value.slice(1));
+                const sellingPrice = parseInt(document.querySelector('.sell-price').value.slice(1));
+                const supplierName = document.querySelector('.s-name').value;
+                const supplierEmail = document.querySelector('.s-email').value;
+                const supplierPhone = document.querySelector('.s-phone').value;
+                // const updateInfo = { buyingPrice, sellingPrice, supplierName, supplierEmail, supplierPhone };
+                const update = async () => {
+                    await axios.put(`http://localhost:5000/updateInfo/${product._id}`, {buyingPrice, sellingPrice, supplierName, supplierEmail, supplierPhone })
+                        .then(res => {
+                            console.log(res)
+                            props?.setrefreshproduct(!props.refreshproduct)
+                        })
+                }
+                update();
                 x.setAttribute("readonly", "true");
+
             })
-            console.log('last is hitting')
         }
         setSupplierUpdate(!supplierUpdate);
     }
 
     const handleRestock = async () => {
         const restock = document.querySelector('.restock').value;
-        console.log('restock', restock)
         await axios.put(`http://localhost:5000/productRestock/${product._id}`, { quantity: parseInt(quantity) + parseInt(restock) })
             .then(res => {
                 if (res.data.modifiedCount >= 1) {
@@ -92,7 +106,7 @@ const Product = (props) => {
                                         <h5>{product?.name}</h5>
                                         <p><i>by {product?.author}</i></p>
                                     </div>
-                                    <div onClick={handleSupplierUpdate} className='toggle-switch'>
+                                    <div onClick={handleUpdateInfo} className='toggle-switch'>
                                         <div className='switch'>
 
                                         </div>
@@ -110,11 +124,11 @@ const Product = (props) => {
                                     </div>
                                     <div className="buying-price text-center">
                                         <p>Buying Price: </p>
-                                        <input className='text-center edit-input-field' type="text" defaultValue={'$' + product?.price} readOnly />
+                                        <input className='text-center edit-input-field price' type="text" defaultValue={'$' + product?.price} name="price" readOnly />
                                     </div>
                                     <div>
                                         <p>Selling Price: </p>
-                                        <input type="text" className='text-center edit-input-field' defaultValue={'$' + product?.price} name="" id="" readOnly />
+                                        <input type="text" className='text-center sell-price edit-input-field' defaultValue={'$' + product.SellPrice || sellPrice} name="" id="" readOnly />
                                     </div>
                                     <button onClick={handleDeliver}>DELIVERED</button>
                                 </div>
@@ -122,13 +136,13 @@ const Product = (props) => {
                                     <p className='p-2'>Supplier:</p>
                                     <div className='p-2'>
                                         <div>
-                                            <b> Name:</b> <input type="text" className='edit-input-field' defaultValue={product?.supplier?.name} readOnly name="" id="" />
+                                            <b> Name:</b> <input type="text" className='edit-input-field s-name' defaultValue={product?.supplier?.name} readOnly name="" id="" />
                                         </div>
 
 
                                         <div>
-                                            <b> Email:</b> <input type="email" className='edit-input-field' defaultValue={product?.supplier?.email} name="email" readOnly />
-                                            <b> Phone:</b> <input type="text" className='edit-input-field' defaultValue={product?.supplier?.phone} name="" readOnly />
+                                            <b> Email:</b> <input type="email" className='edit-input-field s-email' defaultValue={product?.supplier?.email} name="email" readOnly />
+                                            <b> Phone:</b> <input type="text" className='edit-input-field s-phone' defaultValue={product?.supplier?.phone} name="" readOnly />
                                         </div>
                                     </div>
                                 </div>

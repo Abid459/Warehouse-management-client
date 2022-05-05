@@ -3,23 +3,25 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import useAllproducts from '../../hooks/useAllproducts';
+import useRefreshProduct from '../../hooks/useRefreshProduct';
 import AddItem from '../AddItem/AddItem';
 import InventoryProduct from '../InventoryProduct/InventoryProduct';
 import InventoryOptions from './InventoryOptions';
 
 const Inventory = () => {
-    const [products, setPtoducts] = useAllproducts([]);
-    const [refreshProduct, setRefreshProduct] = useState(false)
-    console.log('refresh',refreshProduct)
- 
-    useEffect(()=>{
-        const loadProducts = async() =>{
-            console.log('inside refresh')
-            const { data } = await axios('http://localhost:5000/products');
-            setPtoducts(data);
-        }
-        loadProducts()
-    },[refreshProduct])
+    const {products,setPtoducts,refreshProduct,setRefreshProduct} = useRefreshProduct('products')
+    // const [products, setPtoducts] = useAllproducts([]);
+    // console.log('refresh', refreshProduct)
+    
+    // const [refreshProduct, setRefreshProduct] = useState(false);
+    // useEffect(() => {
+    //     const loadProducts = async () => {
+    //         console.log('inside refresh')
+    //         const { data } = await axios('http://localhost:5000/products');
+    //         setPtoducts(data);
+    //     }
+    //     loadProducts()
+    // }, [refreshProduct])
     // useEffect(() => {
     //     const loadProducts = async () => {
     //         // const { data } = await axios('/products.json');
@@ -38,6 +40,8 @@ const Inventory = () => {
             <FontAwesomeIcon className='faIcon faplus' icon={faPlus} onClick={() => setModalShow(true)}></FontAwesomeIcon>
             {/* bootstrap modal---- */}
             <AddItem
+                refreshproduct={refreshProduct}
+                setrefreshproduct={setRefreshProduct}
                 show={modalShow}
                 onHide={() => setModalShow(false)}
             ></AddItem>

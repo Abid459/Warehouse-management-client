@@ -8,7 +8,7 @@ const Product = (props) => {
     const product = props.product;
     const [supplierUpdate, setSupplierUpdate] = useState(false);
     const [quantity, setQuantity] = useState(0)
-    const [sold, setSold] = useState(props.product.sold)
+    const [sold, setSold] = useState(props?.product?.sold)
     const sellPrice = props?.price +(props.price*0.2)
     useEffect(() => {
         setQuantity(product.quantity)

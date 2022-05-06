@@ -10,8 +10,8 @@ const TopHeader = () => {
             <nav>
                 <Link to ={'/'}> <FontAwesomeIcon className='faIcon1' icon={faWarehouse}></FontAwesomeIcon> </Link>
                 <Link to ={'/inventory'}> <FontAwesomeIcon className='faIcon1' icon={faBoxOpen}></FontAwesomeIcon> </Link>
-                <Link to ={'/singleItem'}> <FontAwesomeIcon className='faIcon1' icon={faHome}></FontAwesomeIcon> </Link>
-                <Link to ={'/myItem'}> <FontAwesomeIcon className='faIcon1' icon={faHome}></FontAwesomeIcon> </Link>
+                {/* <Link to ={'/singleItem'}> <FontAwesomeIcon className='faIcon1' icon={faHome}></FontAwesomeIcon> </Link> */}
+                <Link to ={'/logIn'}> <FontAwesomeIcon className='faIcon1' icon={faHome}></FontAwesomeIcon> </Link>
             </nav>
         {/* <FontAwesomeIcon className='faIcon faEnvelop' icon={faEnvelope }></FontAwesomeIcon>             */}
         </div>

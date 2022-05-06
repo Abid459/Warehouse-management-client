@@ -6,6 +6,7 @@ import './main.css'
 
 import ReactCSSTransitionGroup from 'react-transition-group'; // ES6
 import React from 'react';
+import { Toaster } from 'react-hot-toast';
 
 // window.addEventListener('scroll',(e)=> {
 //   e.preventDefault()
@@ -18,6 +19,7 @@ import React from 'react';
 function App() {
     return (
       <div className="App" >
+        <div><Toaster/></div>
         <Header></Header>
         
       </div>

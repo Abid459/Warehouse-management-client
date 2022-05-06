@@ -109,4 +109,86 @@
 .low-stock {
   margin-top: 70px;
 }
+
+.log-in, .sign-up {
+  display: -ms-grid;
+  display: grid;
+  width: 100vw;
+  height: 100vh;
+  place-content: center;
+}
+
+.log-in .form, .sign-up .form {
+  background: #e9e9e9;
+  padding: 50px;
+  border-radius: 15px;
+  border: 1px solid rgba(139, 139, 139, 0.404);
+  min-height: 300px;
+  max-width: 400px;
+}
+
+.log-in .form form, .sign-up .form form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.log-in .form form p, .sign-up .form form p {
+  font-size: small;
+  margin-top: .8rem;
+}
+
+.log-in .form form p span, .sign-up .form form p span {
+  color: #1228a8;
+  cursor: pointer;
+}
+
+.log-in .form h5, .sign-up .form h5 {
+  text-align: left;
+}
+
+.log-in .form .google-login, .sign-up .form .google-login {
+  background: #202020;
+  width: 100%;
+  margin-top: .4rem;
+  color: white;
+}
+
+.log-in .form button, .sign-up .form button {
+  font-size: .8rem;
+  padding: 10px 40px;
+}
+
+.log-in input, .sign-up input {
+  margin-bottom: 1.2rem;
+  background: #cfcfcf;
+  font-size: .9rem;
+  padding: 5px 20px;
+  outline: 0;
+  border-radius: 3px;
+  width: 230px;
+}
+
+.sign-up input {
+  width: 250px;
+  font-size: .85rem;
+}
+
+.log-in .last-inp {
+  margin-bottom: 0rem;
+}
+
+.log-in .pass-reset {
+  color: #1228a8;
+  text-align: right;
+  margin-bottom: 1.8rem;
+  cursor: pointer;
+}
 /*# sourceMappingURL=main.css.map */

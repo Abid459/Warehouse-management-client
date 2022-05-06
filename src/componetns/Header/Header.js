@@ -9,6 +9,7 @@ import Product from '../Product/Product';
 import TopHeader from './TopHeader';
 import LogIn from '../LogIn/LogIn';
 import Register from '../Register/Register';
+import Temp from '../Temp/Temp';
 
 const Header = () => {
     return (
@@ -23,6 +24,8 @@ const Header = () => {
                 <Route path='lowStock' element={<LowStock></LowStock>}></Route>
                 <Route path='logIn' element={<LogIn></LogIn>}></Route>
                 <Route path='/signUp' element={<Register></Register>}></Route>
+                <Route path='/myProducts' element={<MyItems></MyItems>}></Route>
+                <Route path='/temp' element={<Temp></Temp>}></Route>
                 <Route path='*' element={<NotFound></NotFound>}></Route>
             </Routes>
         </header>

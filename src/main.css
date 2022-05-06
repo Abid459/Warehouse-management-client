@@ -111,6 +111,7 @@
 }
 
 .log-in, .sign-up {
+  margin-top: 70px;
   display: -ms-grid;
   display: grid;
   width: 100vw;

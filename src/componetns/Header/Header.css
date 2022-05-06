@@ -1,13 +1,32 @@
 .top-header {
-  background: #919191;
+  background: #d8d8d8;
   position: fixed;
   top: 0;
   z-index: 10;
   width: 100vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.top-header .nav-bar {
+  margin: 0 auto;
+  padding: 10px 0;
+  display: inline-block;
+}
+
+.top-header .nav-bar a {
+  text-decoration: none;
+}
+
+.top-header .user-photo {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
 }
 
 .top-header .faIcon1 {
-  color: white;
-  margin-left: 5px;
+  color: #474747;
+  margin-left: 15px;
 }
 /*# sourceMappingURL=Header.css.map */

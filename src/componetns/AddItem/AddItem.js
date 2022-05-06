@@ -2,6 +2,8 @@ import { render } from '@testing-library/react';
 import axios from 'axios';
 import React, { useState } from 'react';
 import { Button, Modal, Stack } from 'react-bootstrap';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init';
 
 
 
@@ -10,6 +12,8 @@ import { Button, Modal, Stack } from 'react-bootstrap';
 
 const AddItem = (props) => {
   const [response,setResponse] = useState('');
+  const [user, loading, error] = useAuthState(auth);
+  const [imageUrl,setImageUrl] = useState('')
   // const [modalShow, setModalShow] = React.useState(false);
   const handleAddItem = async e => {
     e.preventDefault();
@@ -23,6 +27,9 @@ const AddItem = (props) => {
   
     const price = e.target.buyimgPrice.value || 0;
     const sellingPrice = e.target.sellingPrice.value || 0;
+
+    const userEmail = user?.email;
+    const sold = 0;
   
     const supplier = {
       name: e.target.sName.value,
@@ -30,7 +37,7 @@ const AddItem = (props) => {
       phone: e.target.sPhonNo.value
     }
     console.log(name, author, image, description, quantity, price, sellingPrice, supplier)
-    const newProduct = { name, author, image, description, quantity, price, sellingPrice, supplier }
+    const newProduct = { name, author, image, description, quantity, price,sold, sellingPrice,userEmail, supplier }
     await axios.post('http://localhost:5000/product', newProduct )
       .then(res => {
         if(res.data.insertedId){
@@ -65,7 +72,7 @@ const AddItem = (props) => {
         <Modal.Body className='d-flex add-item w-100'>
           {/* <h4>Centered Modal</h4> */}
           <div className='img-container'>
-
+              {imageUrl && <img src={imageUrl} alt="" />}
           </div>
 
           <form onSubmit={handleAddItem} className='mx-auto'>
@@ -82,7 +89,7 @@ const AddItem = (props) => {
                   <input type="number" name='sellingPrice' placeholder='Selling Price of per unit boook' />
                 </Stack>
                 <Stack gap={2} direction="horizontal" className='mb-3'>
-                  <input type="text" name="image" placeholder='Image url' />
+                  <input type="text" onBlur={(e)=>setImageUrl(e.target.value)} name="image" placeholder='Image url' />
                   <input type="number" name="quantity" placeholder='Quantity' />
                 </Stack>
               </div>

@@ -9,7 +9,7 @@ const Product = (props) => {
     const [supplierUpdate, setSupplierUpdate] = useState(false);
     const [quantity, setQuantity] = useState(0)
     const [sold, setSold] = useState(props?.product?.sold)
-    const sellPrice = props?.price +(props.price*0.2)
+    const sellPrice = props?.product.price +(props.product.price*0.2)
     useEffect(() => {
         setQuantity(product.quantity)
         setSold(product.sold)
@@ -128,7 +128,7 @@ const Product = (props) => {
                                     </div>
                                     <div>
                                         <p>Selling Price: </p>
-                                        <input type="text" className='text-center sell-price edit-input-field' defaultValue={'$' + product.SellPrice || sellPrice} name="" id="" readOnly />
+                                        <input type="text" className='text-center sell-price edit-input-field' defaultValue={'$' + product.sellingPrice || sellPrice} name="" id="" readOnly />
                                     </div>
                                     <button onClick={handleDeliver}>DELIVERED</button>
                                 </div>

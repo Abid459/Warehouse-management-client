@@ -6,13 +6,14 @@ import { Link, useNavigate } from 'react-router-dom';
 import useLowstock from '../../hooks/useLowstock';
 import InventoryProduct from '../InventoryProduct/InventoryProduct';
 import useRefreshProduct from '../../hooks/useRefreshProduct';
+import Loading from '../Loading/Loading';
 
 const Dashboard = () => {
     const [count,setCount] = useState(0);
     const [price,setPrice] = useState()
     const [lowStock,setLowstock] = useLowstock([]);
     const navigate = useNavigate();
-    const {products,refreshProduct,setRefreshProduct} = useRefreshProduct('productsSix')
+    const {products,refreshProduct,setRefreshProduct,isLoading,error} = useRefreshProduct('productsSix')
 
     useEffect(()=>{
         const counProducts = async () => {
@@ -68,9 +69,11 @@ const Dashboard = () => {
                 </div>
             </div>
             <div className="inventory-product">
+                {isLoading && <Loading></Loading>}
+                {error && <h3>{error}</h3> }
                 <p>Those are inventory product</p>
-                <div>
-                    <InventoryProduct products={products} refreshProduct={refreshProduct} setRefreshProduct={setRefreshProduct}></InventoryProduct>
+                <div><InventoryProduct products={products} refreshProduct={refreshProduct} setRefreshProduct={setRefreshProduct}></InventoryProduct>
+                    {/* <Loading></Loading> */}
                     <Link to={'/inventory'}> Show all products</Link>
                 </div>
             </div>

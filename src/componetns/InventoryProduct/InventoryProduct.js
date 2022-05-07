@@ -20,7 +20,6 @@ const InventoryProduct = ({refreshProduct,setRefreshProduct,products,setPtoducts
              axios.delete(`http://localhost:5000/product/${id}`)
             .then(data=>{
                 setPtoducts(products.filter(product=>product._id !== id))
-                console.log(data)
             })
         }
     }

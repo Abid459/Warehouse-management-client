@@ -20,8 +20,7 @@ const MyItems = () => {
         setIsnavigate(true);
     }
     // user && navigate('/temp');
-    console.dir('refresh error', error)
-    console.log("this is from my products", products)
+    // console.dir('refresh error', error)
     return (
 
         <div className='my-items'>

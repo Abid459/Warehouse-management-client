@@ -11,7 +11,6 @@ import InventoryOptions from './InventoryOptions';
 
 const Inventory = () => {
     const {products,setPtoducts,refreshProduct,setRefreshProduct,isLoading,error} = useRefreshProduct('products')
-    console.log('inventory product',products)
     // const [products, setPtoducts] = useAllproducts([]);
     // console.log('refresh', refreshProduct)
     
@@ -38,7 +37,7 @@ const Inventory = () => {
     return (
         <div className='inventory'>
             {isLoading && <Loading></Loading>}
-            {error && <h3>{error}</h3> }
+            {/* {error && <h3>{error}</h3> } */}
             <InventoryProduct refreshProduct={refreshProduct} setRefreshProduct={setRefreshProduct} products={products} setPtoducts={setPtoducts}></InventoryProduct>
             
             {/* {showOptions === true? <InventoryOptions></InventoryOptions>: null} */}

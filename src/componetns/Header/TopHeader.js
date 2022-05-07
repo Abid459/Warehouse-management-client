@@ -10,8 +10,6 @@ import auth from '../../firebase.init';
 const TopHeader = () => {
     const navigate = useNavigate()
     const [user, loading, error] = useAuthState(auth);
-    console.log("user from header", user)
-
     const signUp = <div>
         <button onClick={()=>navigate('/logIn')}>Sign in</button>
         <button onClick={()=>navigate('/signUp')}>Sign up</button>
@@ -32,7 +30,7 @@ const TopHeader = () => {
                } 
             </div>
 
-            {/* <button onClick={() = signOut(auth)}>Log Out</button> */}
+            <button onClick={() => signOut(auth)}>Log Out</button>
 
             {/* <FontAwesomeIcon className='faIcon faEnvelop' icon={faEnvelope}></FontAwesomeIcon> */}
         </div>

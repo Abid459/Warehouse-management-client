@@ -36,7 +36,7 @@ const AddItem = (props) => {
       email: e.target.sEmail.value,
       phone: e.target.sPhonNo.value
     }
-    console.log(name, author, image, description, quantity, price, sellingPrice, supplier)
+
     const newProduct = { name, author, image, description, quantity, price,sold, sellingPrice,userEmail, supplier }
     await axios.post('http://localhost:5000/product', newProduct )
       .then(res => {
@@ -47,7 +47,6 @@ const AddItem = (props) => {
         }
       })
       .catch(err=>setResponse(err))
-    console.log()
   }
 
 

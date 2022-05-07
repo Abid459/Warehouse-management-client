@@ -57,7 +57,7 @@ const Product = (props) => {
                 const update = async () => {
                     await axios.put(`http://localhost:5000/updateInfo/${product._id}`, {buyingPrice, sellingPrice, supplierName, supplierEmail, supplierPhone })
                         .then(res => {
-                            console.log(res)
+                            // console.log(res)
                             props?.setrefreshproduct(!props.refreshproduct)
                         })
                 }

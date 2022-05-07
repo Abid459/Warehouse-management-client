@@ -29,7 +29,6 @@ const Register = () => {
         }else{
             setErrMessage('Please Confirm your password');
         }
-        console.log(email,password,confirmPassword)
     }
     if(user || userGoogle){
         toast.success('User Created')

@@ -18,7 +18,6 @@ const Dashboard = () => {
     useEffect(()=>{
         const counProducts = async () => {
             const {data} = await axios ('http://localhost:5000/countProducts');
-            console.log(data);
             setCount(data.count);
         }
         counProducts();
@@ -70,7 +69,7 @@ const Dashboard = () => {
             </div>
             <div className="inventory-product">
                 {isLoading && <Loading></Loading>}
-                {error && <h3>{error}</h3> }
+                {/* {error && <h3>{error}</h3> } */}
                 <p>Those are inventory product</p>
                 <div><InventoryProduct products={products} refreshProduct={refreshProduct} setRefreshProduct={setRefreshProduct}></InventoryProduct>
                     {/* <Loading></Loading> */}

@@ -3,6 +3,7 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import { Button, Modal, Stack } from 'react-bootstrap';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import toast from 'react-hot-toast';
 import auth from '../../firebase.init';
 
 
@@ -85,11 +86,11 @@ const AddItem = (props) => {
                 <input type="text" onBlur={(e) => setImageUrl(e.target.value)} name="image" placeholder='Image url' />
                 <input type="number" name="quantity" placeholder='Quantity' />
 
-                
+
               </div>
               <div className='d-flex'>
-                  <textarea className='mx-auto' name="description" id="" cols="30" rows="3" placeholder='Write about your book'></textarea>
-                </div>
+                <textarea className='mx-auto' name="description" id="" cols="30" rows="3" placeholder='Write about your book'></textarea>
+              </div>
               <div className='addItem-supplier'>
                 <div className='mx-auto'>
                   <p>Supplier:</p>
@@ -101,7 +102,7 @@ const AddItem = (props) => {
 
               <hr />
               <div className='d-flex justify-content-end'>
-                <p className='text-primary ms-5'>{response}</p>
+                <p className='text-primary me-5'>{response}</p>
                 <button type='reset'>RESET</button>
                 <button type='submit'>ADD</button>
               </div>

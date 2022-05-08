@@ -12,7 +12,7 @@ import { faArrowCircleRight } from '@fortawesome/free-solid-svg-icons';
 
 const Dashboard = () => {
     const [count,setCount] = useState(0);
-    const [price,setPrice] = useState()
+    const [price,setPrice] = useState(0)
     const [lowStock,setLowstock] = useLowstock([]);
     const navigate = useNavigate();
     const {products,refreshProduct,setRefreshProduct,isLoading,error} = useRefreshProduct('productsSix')

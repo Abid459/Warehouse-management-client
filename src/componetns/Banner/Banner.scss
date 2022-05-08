@@ -1,0 +1,18 @@
+.banner{
+    background: rgb(243, 243, 243);
+    padding: 20px 20px 10px 20px;
+    border-radius: 5px;
+    margin-bottom: 30px;
+    .banner-container{
+    margin: 4rem ;   
+    div{
+        // background: #000;
+        display: flex;
+        justify-content: right;
+    }
+    button{
+        margin-top: 2rem;
+        
+    }     
+    }
+}

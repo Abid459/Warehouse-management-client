@@ -13,9 +13,6 @@
         margin: 10px 30px;
     }
     .options{
-        // position: absolute;
-        // right: 0;
-        // margin: 2px auto;
         display: flex;
         justify-content: right;
         button{
@@ -28,10 +25,8 @@
     }
     p,button{
 
-        font-size: small;
-        // background: #000;
-    }
-    .p-author{
+        font-size: .9rem;
+
     }
 }
 @media only screen and (max-width: 770px){

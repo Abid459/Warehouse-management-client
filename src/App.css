@@ -31,13 +31,13 @@
 
 p{
   margin-bottom: 0;
-  font-size: .9rem;
+  /* font-size: .9rem; */
 }
 h5{
-  font-size: 1rem;
+  font-size: 1.2rem;
 }
 i{
-  font-size: .8rem;
+  font-size: .9rem;
 }
 .hr{
   height: .1px;
@@ -57,7 +57,7 @@ button{
   border: 0;
   outline: 0;
   background: rgb(219, 219, 219);
-  border: .px solid rgb(139, 139, 139);
+  border: .1px solid rgb(139, 139, 139);
   /* color: white; */
   padding:.5rem 1rem;
   /* font-size: 1px; */

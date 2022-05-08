@@ -11,6 +11,7 @@ import LogIn from '../LogIn/LogIn';
 import Register from '../Register/Register';
 import Temp from '../Temp/Temp';
 import RequireAuth from '../RequireAuth/RequireAuth';
+import Blogs from '../Blogs/Blogs';
 
 const Header = () => {
     return (
@@ -25,13 +26,14 @@ const Header = () => {
                 <Route path='lowStock' element={<LowStock></LowStock>}></Route>
                 <Route path='logIn' element={<LogIn></LogIn>}></Route>
                 <Route path='/signUp' element={<Register></Register>}></Route>
+                <Route path='/blogs' element={<Blogs></Blogs>}></Route>
                 <Route path='/myProducts' element={
                     <RequireAuth>
                         <MyItems></MyItems>
                     </RequireAuth>
                 }></Route>
                 <Route path='/temp' element={<Temp></Temp>}></Route>
-                <Route path='*' element={<NotFound></NotFound>}></Route>
+                <Route path='/*' element={<NotFound></NotFound>}></Route>
             </Routes>
         </header>
     );

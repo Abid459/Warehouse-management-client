@@ -6,7 +6,7 @@ const useAllproducts = () => {
     useEffect(() => {
         const loadProducts = async () => {
             // const { data } = await axios('/products.json');
-            const { data } = await axios('http://localhost:5000/products');
+            const { data } = await axios('https://shrouded-refuge-18359.herokuapp.com/products');
             setProducts(data);
             console.log(data);
         }

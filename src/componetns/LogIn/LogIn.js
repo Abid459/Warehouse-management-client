@@ -8,8 +8,8 @@ import axios from 'axios';
 // import { useUpdatePassword } from 'react-firebase-hooks/auth';
 
 const LogIn = () => {
-    let navigate = useNavigate();
-    let location = useLocation();
+    const  navigate = useNavigate();
+    const location = useLocation();
     const [email, setEmail] = useState('')
     // let auth = useAuth();
 
@@ -33,7 +33,7 @@ const LogIn = () => {
         setEmail(e.target.email.value)
         const password = e.target.password.value;
         signInWithEmailAndPassword(email, password);
-        const { data } = await axios.post('http://localhost:5000/login', { email })
+        const { data } = await axios.post('https://shrouded-refuge-18359.herokuapp.com/login', { email })
         localStorage.setItem('accessToken', data);
         navigate(from, { replace: true });
         console.log('email login succes', data)
@@ -46,7 +46,7 @@ const LogIn = () => {
 
         const jwtGoogle = async()=>{
 
-            const { data } = await axios.post('http://localhost:5000/login', { email: user?.email })
+            const { data } = await axios.post('https://shrouded-refuge-18359.herokuapp.com/login', { email: user?.email })
             localStorage.setItem('accessToken', data);
             navigate(from, { replace: true });
             console.log('accessToken For gooogle',data)

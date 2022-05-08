@@ -17,7 +17,7 @@ const useRefreshProduct = (props) => {
             try{
 
                 setIsLoading(true)
-                await axios(`http://localhost:5000/${props}`,{
+                await axios(`https://shrouded-refuge-18359.herokuapp.com/${props}`,{
                     headers:{
                         authorization :`Bearer ${localStorage.getItem('accessToken')}`
                 }
@@ -29,7 +29,7 @@ const useRefreshProduct = (props) => {
             })
         }
             catch(error){
-                toast.error(error?.response?.data.message)
+                toast.error(error?.response?.data?.message)
                 console.dir(error?.response)
                 if(error.response.status === 403){
                     navigate('/login')

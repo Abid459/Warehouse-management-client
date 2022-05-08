@@ -38,4 +38,23 @@
 .single-inventory-item p, .single-inventory-item button {
   font-size: small;
 }
+
+@media only screen and (max-width: 770px) {
+  .single-inventory-item {
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+    -ms-grid-rows: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+  }
+  .single-inventory-item .p-author {
+    margin-left: 2rem;
+  }
+  .single-inventory-item .options {
+    margin-left: -20px;
+  }
+  .single-inventory-item .options button {
+    font-size: .7rem;
+    padding: 5px 10px;
+  }
+}
 /*# sourceMappingURL=InventoryProduct.css.map */

@@ -19,13 +19,13 @@ const Dashboard = () => {
 
     useEffect(()=>{
         const counProducts = async () => {
-            const {data} = await axios ('http://localhost:5000/countProducts');
+            const {data} = await axios ('https://shrouded-refuge-18359.herokuapp.com/countProducts');
             setCount(data.count);
         }
         counProducts();
 
         const totalPrice = async () =>{
-            const {data} = await axios ('http://localhost:5000/allPrice')
+            const {data} = await axios ('https://shrouded-refuge-18359.herokuapp.com/allPrice')
             let sum = 0;
             data.forEach(x => {
                 sum = sum+x;

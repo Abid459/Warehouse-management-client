@@ -1,0 +1,20 @@
+.blogs {
+  display: -ms-grid;
+  display: grid;
+  place-content: center;
+}
+
+.blogs .blogs-container {
+  margin: 0 auto;
+  width: 80%;
+  margin-top: 100px;
+}
+
+.blogs .blogs-container div {
+  margin-bottom: 20px;
+}
+
+.blogs ul {
+  text-decoration: none;
+}
+/*# sourceMappingURL=Blogs.css.map */

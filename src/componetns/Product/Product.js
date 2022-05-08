@@ -9,14 +9,14 @@ const Product = (props) => {
     const [supplierUpdate, setSupplierUpdate] = useState(false);
     const [quantity, setQuantity] = useState(0)
     const [sold, setSold] = useState(props?.product?.sold)
-    const sellPrice = props?.product.price +(props.product.price*0.2)
+    const sellPrice = props?.product.price + (props.product.price * 0.2)
     useEffect(() => {
         setQuantity(product.quantity)
         setSold(product.sold)
     }, [product])
 
     const handleDeliver = async () => {
-        await axios.put(`http://localhost:5000/productQuantitty/${product._id}`, { quantity: quantity - 1, sold: sold + 1 })
+        await axios.put(`https://shrouded-refuge-18359.herokuapp.com/productQuantitty/${product._id}`, { quantity: quantity - 1, sold: sold + 1 })
             .then(res => {
                 if (res.data.modifiedCount >= 1) {
                     setQuantity(quantity - 1)
@@ -41,7 +41,7 @@ const Product = (props) => {
                 x.style.borderRadius = '6px';
                 x.removeAttribute("readonly");
             })
-       
+
             // setSupplierUpdate(true)
         } else if (supplierUpdate) {
             SupplierUpdateBtn.style.right = 'auto';
@@ -55,7 +55,7 @@ const Product = (props) => {
                 const supplierPhone = document.querySelector('.s-phone').value;
                 // const updateInfo = { buyingPrice, sellingPrice, supplierName, supplierEmail, supplierPhone };
                 const update = async () => {
-                    await axios.put(`http://localhost:5000/updateInfo/${product._id}`, {buyingPrice, sellingPrice, supplierName, supplierEmail, supplierPhone })
+                    await axios.put(`https://shrouded-refuge-18359.herokuapp.com/updateInfo/${product._id}`, { buyingPrice, sellingPrice, supplierName, supplierEmail, supplierPhone })
                         .then(res => {
                             // console.log(res)
                             props?.setrefreshproduct(!props.refreshproduct)
@@ -71,7 +71,7 @@ const Product = (props) => {
 
     const handleRestock = async () => {
         const restock = document.querySelector('.restock').value;
-        await axios.put(`http://localhost:5000/productRestock/${product._id}`, { quantity: parseInt(quantity) + parseInt(restock) })
+        await axios.put(`https://shrouded-refuge-18359.herokuapp.com/productRestock/${product._id}`, { quantity: parseInt(quantity) + parseInt(restock) })
             .then(res => {
                 if (res.data.modifiedCount >= 1) {
                     setQuantity(parseInt(quantity) + parseInt(restock))
@@ -99,14 +99,16 @@ const Product = (props) => {
                 <Modal.Body>
                     <div className='product'>
                         <div className="product-wrapper">
-                            <img src={product?.image} alt="" />
                             <div >
-                                <div className='d-flex justify-content-between'>
-                                    <div className="info">
-                                        <h5>{product?.name}</h5>
-                                        <p><i>by {product?.author}</i></p>
+                                <div className='d-flex'>
+                                    <div className='d-flex justify-content-between'>
+                                        <img src={product?.image} alt="" />
+                                        <div className="info">
+                                            <h5>{product?.name}</h5>
+                                            <p><i>by {product?.author}</i></p>
+                                        </div>
                                     </div>
-                                    <div onClick={handleUpdateInfo} className='toggle-switch'>
+                                    <div onClick={handleUpdateInfo} className='toggle-switch '>
                                         <div className='switch'>
 
                                         </div>

@@ -14,19 +14,30 @@ const MyItems = () => {
     const [userEmail, setUserEmail] = useState(user?.email);
     const { products, setPtoducts, refreshProduct, setRefreshProduct, isLoading, error } = useRefreshProduct(`products/myProducts/${userEmail}`)
 
-
-    if(user &&  !isNavigate){
-        navigate('/temp')
-        setIsnavigate(true);
-    }
+// useEffect(()=>{
+    
+// },[])
+    // if(user &&  !isNavigate){
+    //     navigate('/temp')
+    //     setIsnavigate(true);
+    // }
     // user && navigate('/temp');
     // console.dir('refresh error', error)
+    const noProduct = <div className='no-products'>
+        <div>
+        <h4>No Products Found</h4>
+        <p>Tyr adding Products from manage inventory page(click the Plus icon)</p>
+        </div>
+    </div>
     return (
 
         <div className='my-items'>
-            <p>This is my item</p>
+            <h5 className='text-center'>MY <span className='text-muted'> ITEMS</span></h5>
             {loading && <Loading></Loading>}
-            <InventoryProduct products={products} setRefreshProduct={setRefreshProduct} refreshProduct={refreshProduct}></InventoryProduct>
+            {
+                products.length === 0 ? noProduct :<InventoryProduct products={products} setRefreshProduct={setRefreshProduct} refreshProduct={refreshProduct} setPtoducts={setPtoducts}></InventoryProduct>
+            }
+            
         </div>
 
     );

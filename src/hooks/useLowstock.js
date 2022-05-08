@@ -6,7 +6,7 @@ const useLowstock = () => {
     useEffect(()=>{
 
         const lowStock = async () =>{
-            const {data} =await axios ('http://localhost:5000/lowStock')
+            const {data} =await axios ('https://shrouded-refuge-18359.herokuapp.com/lowStock')
             setLowStock(data)
         }
         lowStock();

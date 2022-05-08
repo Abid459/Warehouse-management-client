@@ -16,7 +16,6 @@
 }
 
 .product .product-wrapper img {
-  padding: 50px;
   margin-right: 20px;
   width: 200px;
 }
@@ -25,12 +24,16 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: baseline;
-      -ms-flex-align: baseline;
-          align-items: baseline;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   text-align: center;
   -webkit-box-shadow: 0px 0px 19px -5px #d3d3d3;
           box-shadow: 0px 0px 19px -5px #d3d3d3;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-preferred-size: auto;
+      flex-basis: auto;
   padding: 10px;
   border-radius: 5px;
 }
@@ -63,6 +66,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin-top: 170px;
   position: relative;
 }
 
@@ -94,23 +98,79 @@
   text-align: justify;
 }
 
-.add-item .img-container {
-  width: 500px;
+.inputItem-container button {
+  margin-right: 10px;
+}
+
+.inputItem-container input {
+  margin-bottom: 10px;
+  margin-right: 10px;
+  font-size: .9rem;
+  padding: 3px;
+}
+
+.inputItem-container textarea {
+  padding: 10px;
+}
+
+.add-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.img-container {
+  width: 200px;
   height: 200px;
+  margin: 10px auto;
   background: #c1c1c1;
-  border-radius: 5px;
-  margin-right: 20px;
+  margin-bottom: 10px;
+}
+
+.addItem-supplier {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.addItem-supplier div {
+  margin: auto;
 }
 
 .my-items {
   margin-top: 70px;
 }
 
+.my-items .no-products {
+  display: -ms-grid;
+  display: grid;
+  place-content: center;
+  height: 80vh;
+  color: #acacac;
+}
+
 .low-stock {
   margin-top: 70px;
 }
 
-.log-in, .sign-up {
+.log-in,
+.sign-up {
   margin-top: 70px;
   display: -ms-grid;
   display: grid;
@@ -119,7 +179,8 @@
   place-content: center;
 }
 
-.log-in .form, .sign-up .form {
+.log-in .form,
+.sign-up .form {
   background: #e9e9e9;
   padding: 50px;
   border-radius: 15px;
@@ -128,7 +189,8 @@
   max-width: 400px;
 }
 
-.log-in .form form, .sign-up .form form {
+.log-in .form form,
+.sign-up .form form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -141,33 +203,39 @@
           align-items: center;
 }
 
-.log-in .form form p, .sign-up .form form p {
+.log-in .form form p,
+.sign-up .form form p {
   font-size: small;
   margin-top: .8rem;
 }
 
-.log-in .form form p span, .sign-up .form form p span {
+.log-in .form form p span,
+.sign-up .form form p span {
   color: #1228a8;
   cursor: pointer;
 }
 
-.log-in .form h5, .sign-up .form h5 {
+.log-in .form h5,
+.sign-up .form h5 {
   text-align: left;
 }
 
-.log-in .form .google-login, .sign-up .form .google-login {
+.log-in .form .google-login,
+.sign-up .form .google-login {
   background: #202020;
   width: 100%;
   margin-top: .4rem;
   color: white;
 }
 
-.log-in .form button, .sign-up .form button {
+.log-in .form button,
+.sign-up .form button {
   font-size: .8rem;
   padding: 10px 40px;
 }
 
-.log-in input, .sign-up input {
+.log-in input,
+.sign-up input {
   margin-bottom: 1.2rem;
   background: #cfcfcf;
   font-size: .9rem;
@@ -200,6 +268,10 @@ footer {
   padding: 30px 0;
 }
 
+footer p {
+  font-size: .7rem;
+}
+
 footer .wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -217,12 +289,20 @@ footer .footer-contact-info {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
 }
 
 footer .footer-contact-info p {
   margin-left: 1rem;
+  margin-bottom: 2px;
+}
+
+@media only screen and (max-width: 600px) {
+  .selling-info {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
 }
 /*# sourceMappingURL=main.css.map */

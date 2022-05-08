@@ -1,23 +1,31 @@
 
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init';
 import Product from '../Product/Product';
+import RequireAuth from '../RequireAuth/RequireAuth';
+// import { Navigate, useLocation, useNavigate } from 'react-router-dom';
+import { Navigate, useLocation, useNavigate } from 'react-router-dom';
 
 import './InventoryProduct.css'
+import toast from 'react-hot-toast';
 
 
 const InventoryProduct = ({refreshProduct,setRefreshProduct,products,setPtoducts}) => {
+    
+    
     const [modalShow, setModalShow] = React.useState(false);
     const [curentProduct,setCurentProduct]= useState({});
-    // const [refreshProduct,setRefreshProduct] = useState(false) //for refreshing the product
-    const [quantity,setQuantity] = useState(0)
-
-//    console.log('refreshProduct',refreshProduct)
+    // const [user, loading, error] = useAuthState(auth);
+    const [user,loading] = useAuthState(auth)
+    const navigate = useNavigate();
+    const location =useLocation();
     
     const handleDelete = async(id) =>{
         const isSure = window.confirm('Are you sure?')
         if(isSure){
-             axios.delete(`http://localhost:5000/product/${id}`)
+             axios.delete(`https://shrouded-refuge-18359.herokuapp.com/product/${id}`)
             .then(data=>{
                 setPtoducts(products.filter(product=>product._id !== id))
             })
@@ -30,6 +38,20 @@ const InventoryProduct = ({refreshProduct,setRefreshProduct,products,setPtoducts
         setCurentProduct(product)
     }
 
+    const noUser = () =>{
+        
+        toast.error('Please sign in to make changes.', {
+            style: {
+                border: '1px solid orange',
+                padding: '16px',
+                color: 'black',
+            },
+            iconTheme: {
+                primary: 'black',
+                secondary: '#FFFAEE',
+            },
+        });
+    }
     return (
         <div className='inventory-product px-5 py-3'>
 
@@ -57,10 +79,15 @@ const InventoryProduct = ({refreshProduct,setRefreshProduct,products,setPtoducts
                             <p>Quantity</p>
                             <p>{product?.quantity}</p>
                         </div>
-                        <div className='options'>
-                            <button onClick={()=>handleDelete(product._id)}>DELETE</button>
-                            <button onClick={()=>handleEdit(product)}>EDIT</button>
-                        </div>
+                        {
+                            user ? <div className='options'>
+                            <button onClick={()=>handleDelete(product._id)} >Delete</button>
+                            <button onClick={()=>handleEdit(product)}>Update</button> </div>: <div className='options'>
+                            <button onClick={noUser} >Delete</button>
+                            <button onClick={noUser}>Update</button> </div>
+                        
+                        }
+                        
 
 
 

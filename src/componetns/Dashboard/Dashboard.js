@@ -7,6 +7,8 @@ import useLowstock from '../../hooks/useLowstock';
 import InventoryProduct from '../InventoryProduct/InventoryProduct';
 import useRefreshProduct from '../../hooks/useRefreshProduct';
 import Loading from '../Loading/Loading';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowCircleRight } from '@fortawesome/free-solid-svg-icons';
 
 const Dashboard = () => {
     const [count,setCount] = useState(0);
@@ -45,35 +47,41 @@ const Dashboard = () => {
         <div className='dashboard'>
             <div className='stock-info d-flex justify-content-around py-2'>
                 <div>
-                    <p>Current Stock</p>
+                    <h5>Current Stock</h5>
                     <p className='text-center'>{count}</p>
                 </div>
+                <div className='vr'></div>
                 <div>
-                    <p>Stock Value</p>
+                    <h5>Stock Value</h5>
                     <p className='text-center'>${price}</p>
                 </div>
             </div>
 
             <div className='dashboard-info'>
-                <div>
-                    <p>Low Stock</p>
+                <div className='low-stock'>
+                    <h5>Low Stock</h5>
                     <p>{lowStock.length}</p>
                     <button onClick={()=>navigate('/lowStock',lowStock)}>Manage</button>
                 </div>
-                <div>
-                    <p>Transactions</p>
-                    <p>Sell:$3000</p>
-                    <p>Capital:$2000</p>
-                    <p>Revenew:$1000</p>
+                <div className='transection'>
+                    <h5>Transactions</h5>
+                    <div className="transection-info">
+                    <p> Sell: <i>$ 3000 </i></p>
+                    <p>Capital: <i> $2000 </i> </p>
+                    <p>Revenew: <i> $1000 </i></p>
+                    </div>
                 </div>
             </div>
-            <div className="inventory-product">
+            <div className="inventory-products">
                 {isLoading && <Loading></Loading>}
                 {/* {error && <h3>{error}</h3> } */}
-                <p>Those are inventory product</p>
+                <h5>Inventory Products</h5>
                 <div><InventoryProduct products={products} refreshProduct={refreshProduct} setRefreshProduct={setRefreshProduct}></InventoryProduct>
                     {/* <Loading></Loading> */}
-                    <Link to={'/inventory'}> Show all products</Link>
+                    <div className='w-100 text-end p-3 ' role="button" onClick={()=>navigate('/inventory')}>
+                    <p> Show all products</p>
+                    <FontAwesomeIcon icon={faArrowCircleRight}></FontAwesomeIcon>
+                    </div>
                 </div>
             </div>
 

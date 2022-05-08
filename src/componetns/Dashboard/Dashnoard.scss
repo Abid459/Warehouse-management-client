@@ -1,18 +1,47 @@
 .stock-info {
-    background: rgb(203, 203, 203);
+    // background: rgb(228, 228, 228);
     margin-bottom: 30px;
+    border-radius: 10px;
+    // box-shadow: 0px 0px 11px -2px #cdcdcd;
+    box-shadow: 0px 0px 17px -5px #cacaca;
     // .stock-info{
-
-}
-.dashboard-info{
-    background: rgb(197, 197, 197);
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    div{
-        margin: 10px auto;
-        background: rgb(0, 154, 181);
-        padding: 20px;
+        
+    }
+    .dashboard-info{
+        // background: rgb(197, 197, 197);
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        box-shadow: 0px 0px 17px -5px #cacaca;
+        // background-image: linear-gradient(to right, rgba(223, 248, 255, 0.459),rgba(194, 194, 255, 0.205),rgba(211, 234, 255, 0.178),rgba(219, 219, 255, 0.432));
+        border-radius: 10px;
+    .low-stock, .transection{
+        margin: 50px auto;
+        background: rgb(243, 243, 243);
+        border: .1px solid rgb(194, 194, 194);
+        padding: 30px;
         border-radius: 5px;
-        color: aliceblue;
+        // color: aliceblue;
+        text-align: center;
+        .transection-info{
+            text-align: left;
+        }
+    }
+}
+.inventory-products{
+    margin-top: 2rem;
+    border-radius: 10px;
+    // box-shadow: 0px 0px 11px -2px #cdcdcd;
+    box-shadow: 0px 0px 17px -5px #cacaca;
+    // background: #000;
+    h5{
+        text-align: center;
+        padding: 10px 0;
+    }
+    p{
+        // text-decoration: none;
+        padding-right: 10px;
+        display: inline-block;
+        // margin-bottom: 30px;
+        // text-align: right;
     }
 }

@@ -5,7 +5,7 @@
     z-index: 10;
     width: 100vw;
     display: flex;
-    // align-content: center;
+    align-items: center;
     .nav-bar{
         margin: 0 auto;
         padding: 10px 0;
@@ -15,13 +15,31 @@
             text-decoration: none;
         }
     }
+    .brand{
+        img{
+            width:70px;
+            padding: 5px 0;
+            margin-left: 100px;
+        }
+    }
     .user-photo{
         width: 30px;
         height: 30px;
         border-radius: 50%;
+        margin-right: 5px;
     }
     .faIcon1{
         color: rgb(71, 71, 71);
         margin-left: 15px;
+    }
+    button{
+        background: rgba(255, 255, 255, 0);
+        font-size: .9rem;
+        // color: aliceblue;
+    }
+    .log-out{
+        margin-right: 10px;
+        // font-weight: 500;
+        // font-size: 1rem;
     }
 }

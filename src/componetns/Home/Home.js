@@ -8,7 +8,7 @@ const Home = () => {
         <div className='home'>
 
             <div className="container">
-                <p>Quick OverView</p>
+                {/* <p>Quick OverView</p> */}
                 <Dashboard></Dashboard>
                 <Footer></Footer>
             </div>

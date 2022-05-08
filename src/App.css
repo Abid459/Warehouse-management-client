@@ -3,6 +3,32 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+/* -----------------scrollbar----------- */
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+  /* height: 1px; */
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #00000000;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(161, 161, 161);
+  height: 11px;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+/* -----------------scrollbar end----------- */
+
 p{
   margin-bottom: 0;
   font-size: .9rem;

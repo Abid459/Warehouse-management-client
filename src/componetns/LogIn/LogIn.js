@@ -14,6 +14,9 @@ const LogIn = () => {
     // let auth = useAuth();
 
     let from = location.state?.from?.pathname || "/";
+    console.log(from)
+    const product = location?.state?.product;
+    console.log('it is product',product)
     const [user] = useAuthState(auth);
 
 
@@ -35,7 +38,7 @@ const LogIn = () => {
         signInWithEmailAndPassword(email, password);
         const { data } = await axios.post('https://shrouded-refuge-18359.herokuapp.com/login', { email })
         localStorage.setItem('accessToken', data);
-        navigate(from, { replace: true });
+        navigate(from,{state:product}, { replace: true });
         console.log('email login succes', data)
     }
     const handleGoogleSignIn = async () => {

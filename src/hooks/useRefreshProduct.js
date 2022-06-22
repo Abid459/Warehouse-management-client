@@ -24,13 +24,18 @@ const useRefreshProduct = (props) => {
             })
             
             .then(data=>{
-                setIsLoading(false)
                 setPtoducts(data.data)
+                setIsLoading(false)
             })
         }
             catch(error){
-                toast.error(error?.response?.data?.message)
-                console.dir(error?.response)
+                if(error.code === 'ERR_NETWORK'){
+                    toast.error("Check Internet Connection and try Reloading")
+                }else{
+                    console.log('This is errro',error)
+                    toast.error(error?.message)
+                    console.dir(error?.response)
+                }
                 if(error.response.status === 403){
                     navigate('/login')
                     signOut(auth);

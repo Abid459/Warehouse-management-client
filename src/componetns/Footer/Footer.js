@@ -14,12 +14,9 @@ const Footer = () => {
                 <div className='text-start'>
                     <h5 className='mb-3'>Contact developer</h5>
                     <div className='footer-contact-info'>
-                    <FontAwesomeIcon icon={faEnvelope}></FontAwesomeIcon><p>abid45986@gmail.com</p>
+                    <FontAwesomeIcon icon={faEnvelope}></FontAwesomeIcon><p>abidul,islam303@gmail.com</p>
                     </div>
-                    <div className='footer-contact-info'>
-                    <FontAwesomeIcon icon={faWhatsapp} />
-                    <p>014444444444</p>
-                    </div>
+                    
 
                 </div>
             </div>
